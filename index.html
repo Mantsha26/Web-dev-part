@@ -1,203 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> home-STEAK HOUSE</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home - STEAK HOUSE</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff; 
-        }
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <img src="assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" />
+        <h1>STEAK HOUSE</h1>
+      </div>
+      <!-- Navigation -->
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="./pages/mune.html">Menu</a></li>
+          <li><a href="./pages/contact.html">Contact</a></li>
+          <li><a href="./pages/about.html">About us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        
-        ul.nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #B397AE;
-        }
+  <main>
+    <video src="assests/real-hungry_ribs_1920x480_small.mp4" autoplay muted loop playsinline></video>
 
-        ul.nav li {
-            float: left;
-        }
+    <section>
+      <h2>Flame-Grilled Ribs, Crispy Wings & Hand-Cut Chips</h2>
+      <p>Made fresh, priced fair, and served fast. Pull in for a quick bite or grab a feast to go — quality you can taste in every bite.</p>
+      <p>
+        <a href="./pages/mune.html">View Menu</a>
+        <a href="./pages/about.html">Learn More</a>
+      </p>
+      <figure>
+        <img src="assests/page_1.png" alt="Platter of flame-grilled ribs with chips" />
+        <figcaption>Since 2017 • South Africa’s favourite grill.</figcaption>
+      </figure>
+    </section>
 
-        ul.nav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
+    <!-- Popular Picks -->
+    <section>
+      <h2>Popular Picks</h2>
 
-        ul.nav li a:hover:not(.active) {
-            background-color: #111;
-        }
+      <article>
+        <h3>Half Rack Ribs</h3>
+        <img src="assests/half rack ribs.jpg" alt="Half rack ribs served with chips" />
+        <p>Basted and flame-grilled, served with chips.</p>
+        <p>Price: R129</p>
+      </article>
 
-        .active {
-            background-color: #F6CDCE;
-        }
-
-        
-        h1, h2 {
-            color: #333;
-            padding-left: 20px;
-        }
-
-        
-        .menu-list {
-            list-style-type: disc;
-            margin-left: 40px;
-            padding: 0;
-            color: #333;
-        }
-
-        .menu-list li {
-            margin-bottom: 5px;
-            background-color: transparent; 
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <img src="../assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" height="10%" width="10%">
-                <h1>STEAK HOUSE</h1>
-            </div>
-        </div>
-        <!-- Navigation -->
-       <ul class="nav">
-         <li><a href="index.html">Home</a></li>
-         <li><a href="./pages/mune.html">Menu</a></li>
-         <li><a href="./pages/contact.html">Contact</a></li>
-         <li style="float:right"><a class="active" href="./pages/about.html">About us</a></li>
-       </ul>
-    </header>
-      
-   <main style="padding:20px;">
-      <video src="assests/real-hungry_ribs_1920x480_small.mp4" height="300px"autoplay muted loop controls></video>
-     <section >
-        <h2 >Flame-Grilled Ribs, Crispy Wings & Hand-Cut Chips</h2>
-        <p>Made fresh, priced fair, and served fast. Pull in for a quick bite or grab a feast to go — quality you can taste in every bite.</p>
-        <p>
-          <a href="./pages/mune.html">View Menu</a>
-          <a href="./pages/about.html">Learn More</a>
-        </p>
-        <figure>
-          <img src="/assests/page_1.png" alt="Platter of flame-grilled ribs with chips" width="10%" height="10%">
-          <figcaption>Since 2017 • South Africa’s favourite grill.</figcaption>
-        </figure>
-     </section>
-
-     <!-- Popular Picks -->
-     <section >
-      <h2 >Popular Picks</h2>
-
-       <article>
-         <h3>Half Rack Ribs</h3>
-         <img src="/assests/half rack ribs.jpg" alt="Half rack ribs served with chips"width="20%" height="20%">
-         <p>Basted and flame-grilled, served with chips.</p>
-         <p>Price: R129</p>
-       </article>
-
-       <article>
-         <h3>12 Crispy Wings</h3>
-         <img src="/assests/Wings.jpg" alt="Crispy wings on a platter"width="20%" height="20%">
-         <p>Choice of BBQ, Peri-Peri, or Lemon &amp; Herb.</p>
-         <p>Price: R109</p>
-       </article>
+      <article>
+        <h3>12 Crispy Wings</h3>
+        <img src="assests/Wings.jpg" alt="Crispy wings on a platter" />
+        <p>Choice of BBQ, Peri-Peri, or Lemon &amp; Herb.</p>
+        <p>Price: R109</p>
+      </article>
 
       <article>
         <h3>Steak House Chips</h3>
-        <img src="/assests/french-fries.jpg" alt="Hand-cut chips in a basket" width="20%" height="20%">
+        <img src="assests/french-fries.jpg" alt="Hand-cut chips in a basket" />
         <p>Hand-cut, double-fried, salted to perfection.</p>
         <p>Price: R39</p>
       </article>
-     </section>
+    </section>
 
     <!-- About -->
-    <section  aria-labelledby="about-title">
-      <h2 >Our Story</h2>
+    <section aria-labelledby="about-title">
+      <h2>Our Story</h2>
       <p>We started as a weekend market stall in 2017 and grew into a much-loved local spot. Today our focus is simple: honest portions, bold flavour, and fast service.</p>
       <ul>
-        <li>Freshly prepped daily </li>
-        <li>Locally sourced where possible </li>
-        <li>Affordable family combos </li>
+        <li>Freshly prepped daily</li>
+        <li>Locally sourced where possible</li>
+        <li>Affordable family combos</li>
       </ul>
-      
     </section>
 
     <!-- Gallery (simple list without styling) -->
     <section aria-labelledby="gallery-title">
-      <h2 >From the Grill</h2>
-      <figure>
-        <img src="/assests/ribs close up.jpg" alt="Ribs close-up with glaze" width="20%" height="20%">
-        <figcaption>Signature glaze &amp; char.</figcaption>
-      </figure>
-      <figure>
-        <img src="/assests/wings sauces.jpg" alt="Wings platter with sauces" width="20%" height="20%">
-        <figcaption>Wings your way.</figcaption>
-      </figure>
-      <figure>
-        <img src="/assests/basket of chips.jpg" alt="Basket of chips" width="20%" height="20%">
-        <figcaption>Hand-cut crunch.</figcaption>
-      </figure>
-      <figure>
-        <img src="/assests/combo.jpeg" alt="Combo meal for sharing" width="20%" height="20%">
-        <figcaption>Perfect for sharing.</figcaption>
-      </figure>
+      <h2>From the Grill</h2>
+      <div class="gallery-grid">
+        <figure>
+          <img src="assests/ribs close up.jpg" alt="Ribs close-up with glaze" />
+          <figcaption>Signature glaze &amp; char.</figcaption>
+        </figure>
+        <figure>
+          <img src="assests/wings sauces.jpg" alt="Wings platter with sauces" />
+          <figcaption>Wings your way.</figcaption>
+        </figure>
+        <figure>
+          <img src="assests/basket of chips.jpg" alt="Basket of chips" />
+          <figcaption>Hand-cut crunch.</figcaption>
+        </figure>
+        <figure>
+          <img src="assests/combo.jpeg" alt="Combo meal for sharing" />
+          <figcaption>Perfect for sharing.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- Find Us / Contact -->
-    <section >
-      <h2 >Find Us</h2>
-      <!-- Replace src with your actual Google Maps embed URL -->
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.901069820204!2d29.463024538213798!3d-23.911952551002827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d77ef9fabb43%3A0x45afd8aad52277b5!2s30%20Magazyn%20St%2C%20Polokwane%20Central%2C%20Polokwane%2C%200699!5e1!3m2!1sen!2sza!4v1755866976503!5m2!1sen!2sza" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> 
-      </iframe>
+    <section>
+      <h2>Find Us</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.901069820204!2d29.463024538213798!3d-23.911952551002827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d77ef9fabb43%3A0x45afd8aad52277b5!2s30%20Magazyn%20St%2C%20Polokwane%20Central%2C%20Polokwane%2C%200699!5e1!3m2!1sen!2sza!4v1755866976503!5m2!1sen!2sza"
+        width="500"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </section>
 
-    <section >
-      <h2 >Contact</h2>
+    <section>
+      <h2>Contact</h2>
       <p>Open Daily: 9:00–21:00</p>
       <p>Phone: <a href="tel:+27XXXXXXXXX">0679799291</a></p>
       <p>Email: <a href="mailto:hello@steakhouse.co.za">hello@steakhouse.co.za</a></p>
-      <p>Address:30 Mangazyn St, Polokwane Central </p>
+      <p>Address: 30 Mangazyn St, Polokwane Central</p>
       <p><a href="mailto:hello@steakhouse.co.za?subject=Order%20Enquiry">Email Us</a></p>
     </section>
-   </main>
+  </main>
 
-     <!-- Font Awesome Icons -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <footer>
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
 
-    <footer style="background-color:#111; color:white; text-align:center; padding:20px 0;">
-      <!-- Social Icons -->
-      <div style="margin-bottom:15px;">
-        <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-instagram"></i></a>
-        <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-twitter"></i></a>
-        <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-google"></i></a>
-        <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-youtube"></i></a>
-     </div>
+    <!-- Navigation Links -->
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="./pages/mune.html">Menu</a>
+      <a href="./pages/about.html">About</a>
+      <a href="./pages/contact.html">Contact Us</a>
+    </div>
 
-      <!-- Navigation Links -->
-      <div style="margin:10px 0;">
-        <a href="index.html" style="color:white; text-decoration:none; margin:0 10px;">Home</a>
-        <a href="./pages/mune.html" style="color:white; text-decoration:none; margin:0 10px;">mune</a>
-        <a href="./pages/about.html" style="color:white; text-decoration:none; margin:0 10px;">About</a>
-       <a href="./pages/contact.html" style="color:white; text-decoration:none; margin:0 10px;">Contact Us</a>
-      </div>
-
-      <!-- Copyright -->
-      <div style="font-size:12px; margin-top:10px;">
-        Copyright ©2025;steak home
-      </div>
-   </footer>
+    <!-- Copyright -->
+    <div class="footer-copy">
+      Copyright ©2025; Steak House
+    </div>
+  </footer>
 </body>
 </html>

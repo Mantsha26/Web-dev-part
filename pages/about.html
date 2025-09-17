@@ -4,84 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us-STEAK HOUSE</title>
-</head>
-<body>
-     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff; 
-        }
-
-        
-        ul.nav {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #B397AE;
-        }
-
-        ul.nav li {
-            float: left;
-        }
-
-        ul.nav li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.nav li a:hover:not(.active) {
-            background-color: #111;
-        }
-
-        .active {
-            background-color: #F6CDCE;
-        }
-
-        
-        h1, h2 {
-            color: #333;
-            padding-left: 20px;
-        }
-
-        
-        .menu-list {
-            list-style-type: disc;
-            margin-left: 40px;
-            padding: 0;
-            color: #333;
-        }
-
-        .menu-list li {
-            margin-bottom: 5px;
-            background-color: transparent; 
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <img src="../assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" height="10%" width="10%">
+                <img src="../assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" />
                 <h1>STEAK HOUSE</h1>
             </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./mune.html">Menu</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="about.html" class="active">About us</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Navigation -->
-       <ul class="nav">
-         <li><a href="../index.html">Home</a></li>
-         <li><a href="./mune.html">Menu</a></li>
-         <li><a href="./contact.html">Contact</a></li>
-         <li style="float:right"><a class="active" href="about.html">About us</a></li>
-       </ul>
     </header>
    <!--main and about us-->
-  <main style="text-align: center;">
+  <main>
 
         <h1 >About Us</h1>
 
@@ -101,39 +46,39 @@
          <!--Our team-->
         <h4> Meet Our Team</h4>
      
-           <img src="/assests/chef.jpg" alt="chef" width="30%" height="30%">
-           <p style="font-size: larger;">chef MR Mpho</p>
-      
-          <img src="/assests/images (3).jpeg" alt="chef" width="30%" height="30%">
-          <p style="font-size: larger;">chef MRS Mantsha</p>
-      
-          <img src="/assests/PHOTO-2019-04-16-16-44-16-1.webp" alt="Chef" width="30%" height="30%">
-          <p style="font-size: larger;">The Master Chef and the owner MR Pepe</p>    
+           <img src="../assests/chef.jpg" alt="chef" width="30%" height="30%">
+           <p>chef MR Mpho</p>
+
+          <img src="../assests/images (3).jpeg" alt="chef" width="30%" height="30%">
+          <p>chef MRS Mantsha</p>
+
+          <img src="../assests/PHOTO-2019-04-16-16-44-16-1.webp" alt="Chef" width="30%" height="30%">
+          <p>The Master Chef and the owner MR Pepe</p>
   </main>
       <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <footer style="background-color:#111; color:white; text-align:center; padding:20px 0;">
+  <footer>
     <!-- Social Icons -->
-    <div style="margin-bottom:15px;">
-      <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-instagram"></i></a>
-      <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-twitter"></i></a>
-      <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-google"></i></a>
-      <a href="#" style="color:white; margin:0 10px; font-size:20px;"><i class="fab fa-youtube"></i></a>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
 
     <!-- Navigation Links -->
-    <div style="margin:10px 0;">
-      <a href="../index.html" style="color:white; text-decoration:none; margin:0 10px;">Home</a>
-      <a href="./mune.html" style="color:white; text-decoration:none; margin:0 10px;">mune</a>
-      <a href="about.html" style="color:white; text-decoration:none; margin:0 10px;">About</a>
-      <a href="./contact.html" style="color:white; text-decoration:none; margin:0 10px;">Contact Us</a>
+    <div class="footer-nav">
+      <a href="../index.html">Home</a>
+      <a href="./mune.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="./contact.html">Contact Us</a>
     </div>
 
     <!-- Copyright -->
-    <div style="font-size:12px; margin-top:10px;">
-      Copyright ©2025;steak home
+    <div class="footer-copy">
+      Copyright ©2025; Steak House
     </div>
   </footer>
 
