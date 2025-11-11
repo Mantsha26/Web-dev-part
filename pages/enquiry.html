@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact-steak house</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" />
+                <h1>STEAK HOUSE</h1>
+            </div>
+            <!-- Navigation -->
+            <nav>
+                <ul class="nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./mune.html">Menu</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="enquiry.html"class="active">enquiry</a></li>
+                    <li><a href="./about.html">About us</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>   
+        <main>
+         <div class="container">
+        <header>
+            <h1>The Rib & Wing House</h1>
+            <p class="tagline">Serving the finest ribs, wings, and chips in town</p>
+        </header>
+        
+        <div class="form-container">
+            <h2>Service Enquiry Form</h2>
+            <p>Fill out this form to enquire about our catering services, menu items, or to place a large order.</p>
+
+            <!-- ✅ Auto Date & Time Clock -->
+            <div class="auto-datetime">
+                <strong>Enquiry Created On:</strong> <span id="autoDateTime"></span>
+            </div>
+            
+            <div id="enquiry-success" class="success-message">
+                <h3>Thank you for your enquiry!</h3>
+                <p>We'll get back to you soon with information about pricing and availability.</p>
+            </div>
+            
+            <form id="enquiryForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiry-name" class="required">Full Name</label>
+                        <input type="text" id="enquiry-name" name="name" required minlength="2" placeholder="Your full name">
+                        <div class="error-message" id="enquiry-name-error">Please enter your full name (minimum 2 characters)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enquiry-email" class="required">Email Address</label>
+                        <input type="email" id="enquiry-email" name="email" required placeholder="your.email@example.com">
+                        <div class="error-message" id="enquiry-email-error">Please enter a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="enquiry-phone" class="required">Phone Number</label>
+                        <input type="tel" id="enquiry-phone" name="phone" pattern="[0-9+\-\s()]{10,}" required placeholder="+27********6">
+                        <div class="error-message" id="enquiry-phone-error">Please enter a valid phone number (minimum 10 digits)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enquiry-service" class="required">Enquiry Type</label>
+                        <select id="enquiry-service" name="service" required>
+                            <option value="">Select enquiry type</option>
+                            <option value="catering">Catering Services</option>
+                            <option value="bulk-order">Bulk Order</option>
+                            <option value="event">Event Planning</option>
+                            <option value="menu-info">Menu Information</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="enquiry-service-error">Please select an enquiry type</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enquiry-date">Preferred Date</label>
+                    <input type="date" id="enquiry-date" name="date" min="">
+                    <div class="form-note">For catering or event enquiries</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enquiry-items">Items of Interest</label>
+                    <textarea id="enquiry-items" name="items" placeholder="Please specify which menu items you're interested in and approximate quantities..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="enquiry-guests">Number of Guests (if applicable)</label>
+                    <input type="number" id="enquiry-guests" name="guests" min="1" placeholder="e.g., 25">
+                </div>
+                
+                <div class="form-group">
+                    <label for="enquiry-message" class="required">Additional Details</label>
+                    <textarea id="enquiry-message" name="message" required minlength="10" placeholder="Please provide any additional details about your enquiry..."></textarea>
+                    <div class="error-message" id="enquiry-message-error">Please provide more details (minimum 10 characters)</div>
+                </div>
+                
+                <button type="submit">Submit Enquiry</button>
+            </form>
+        </div>
+    </div>
+    </main>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('enquiry-date').min = today;
+
+    // Live date & time clock
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
+        document.getElementById('autoDateTime').textContent = now.toLocaleString('en-ZA', options);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+});
+
+// Form validation functions
+function validateField(field, errorElement, validationFn) {
+    const isValid = validationFn(field.value);
+    if (!isValid) {
+        field.style.borderColor = 'var(--error-color)';
+        errorElement.style.display = 'block';
+        return false;
+    } else {
+        field.style.borderColor = '#ddd';
+        errorElement.style.display = 'none';
+        return true;
+    }
+}
+
+const validations = {
+    name: value => value.length >= 2,
+    email: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+    phone: value => /^[0-9+\-\s()]{10,}$/.test(value.replace(/\s/g, '')),
+    service: value => value !== '',
+    message: value => value.length >= 10
+};
+
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nameField = document.getElementById('enquiry-name');
+    const emailField = document.getElementById('enquiry-email');
+    const phoneField = document.getElementById('enquiry-phone');
+    const serviceField = document.getElementById('enquiry-service');
+    const messageField = document.getElementById('enquiry-message');
+
+    const nameValid = validateField(nameField, document.getElementById('enquiry-name-error'), validations.name);
+    const emailValid = validateField(emailField, document.getElementById('enquiry-email-error'), validations.email);
+    const phoneValid = validateField(phoneField, document.getElementById('enquiry-phone-error'), validations.phone);
+    const serviceValid = validateField(serviceField, document.getElementById('enquiry-service-error'), validations.service);
+    const messageValid = validateField(messageField, document.getElementById('enquiry-message-error'), validations.message);
+
+    if (nameValid && emailValid && phoneValid && serviceValid && messageValid) {
+        document.getElementById('enquiry-success').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => { this.reset(); }, 3000);
+    }
+});
+
+// Real-time validation on blur
+document.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', function() {
+        const fieldName = this.name;
+        const errorElement = document.getElementById(`enquiry-${fieldName}-error`);
+        if (errorElement) {
+            let isValid = false;
+            switch(fieldName) {
+                case 'name': isValid = validations.name(this.value); break;
+                case 'email': isValid = validations.email(this.value); break;
+                case 'phone': isValid = validations.phone(this.value); break;
+                case 'service': isValid = validations.service(this.value); break;
+                case 'message': isValid = validations.message(this.value); break;
+            }
+            if (!isValid && this.value !== '') {
+                this.style.borderColor = '#e74c3c';
+                errorElement.style.display = 'block';
+            } else {
+                this.style.borderColor = '#ddd';
+                errorElement.style.display = 'none';
+            }
+        }
+    });
+});
+
+    </script>
+
+
+        <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <footer>
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-google"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="footer-nav">
+      <a href="../index.html">Home</a>
+      <a href="./mune.html">Menu</a>
+      <a href="./about.html">About</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      Copyright ©2025; Steak House
+    </div>
+  </footer>
+    </header>
+  
