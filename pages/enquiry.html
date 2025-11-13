@@ -139,92 +139,133 @@
   </footer>
 
      <!-- JavaScript Section -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('enquiry-date').min = today;
+   <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements used repeatedly
+    const successBox = document.getElementById('enquiry-success');
+    const dateInput = document.getElementById('enquiry-date');
 
-            // Live date & time clock
-            function updateDateTime() {
-                const now = new Date();
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                };
-                document.getElementById('autoDateTime').textContent = now.toLocaleString('en-ZA', options);
-            }
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-        });
+    // Hide success message initially
+    if (successBox) successBox.style.display = 'none';
 
-        // Validation helpers
-        function validateField(field, errorElement, validationFn) {
-            const isValid = validationFn(field.value);
-            if (!isValid) {
-                field.style.borderColor = 'var(--error-color)';
-                errorElement.style.display = 'block';
-                return false;
-            } else {
-                field.style.borderColor = '#ddd';
-                errorElement.style.display = 'none';
-                return true;
-            }
+    // Set minimum date for date input (today)
+    const today = new Date().toISOString().split('T')[0];
+    if (dateInput) dateInput.min = today;
+
+    // Live date & time clock
+    function updateDateTime() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        };
+        const autoDateEl = document.getElementById('autoDateTime');
+        if (autoDateEl) autoDateEl.textContent = now.toLocaleString('en-ZA', options);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+});
+
+// Generic field validator: supply the input/select/textarea element, its error element, and a function that returns true/false
+function validateField(field, errorElement, validationFn) {
+    if (!field) return false;
+    const isValid = validationFn(field.value);
+    if (!isValid) {
+        field.style.borderColor = 'var(--error-color)' || '#e74c3c';
+        if (errorElement) errorElement.style.display = 'block';
+        return false;
+    } else {
+        field.style.borderColor = '#ddd';
+        if (errorElement) errorElement.style.display = 'none';
+        return true;
+    }
+}
+
+// Validation rules
+const validations = {
+    name: value => value.trim().length >= 2,
+    email: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
+    // Phone: count digits only (allow +, spaces, parentheses etc. but require at least 10 digits)
+    phone: value => {
+        const digits = value.replace(/\D/g, '');
+        return digits.length >= 10;
+    },
+    service: value => value !== '',
+    message: value => value.trim().length >= 10
+};
+
+// Proper submit handler (uses DOM elements)
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nameField = document.getElementById('enquiry-name');
+    const emailField = document.getElementById('enquiry-email');
+    const phoneField = document.getElementById('enquiry-phone');
+    const serviceField = document.getElementById('enquiry-service');
+    const messageField = document.getElementById('enquiry-message');
+
+    const nameValid = validateField(nameField, document.getElementById('enquiry-name-error'), validations.name);
+    const emailValid = validateField(emailField, document.getElementById('enquiry-email-error'), validations.email);
+    const phoneValid = validateField(phoneField, document.getElementById('enquiry-phone-error'), validations.phone);
+    const serviceValid = validateField(serviceField, document.getElementById('enquiry-service-error'), validations.service);
+    const messageValid = validateField(messageField, document.getElementById('enquiry-message-error'), validations.message);
+
+    if (nameValid && emailValid && phoneValid && serviceValid && messageValid) {
+        const successBox = document.getElementById('enquiry-success');
+        if (successBox) successBox.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Clear the form after a short delay so user sees success
+        const form = document.getElementById('enquiryForm');
+        setTimeout(() => {
+            if (form) form.reset();
+            // hide success after another 2.5s
+            setTimeout(() => {
+                if (successBox) successBox.style.display = 'none';
+            }, 2500);
+        }, 1000);
+    } else {
+        // focus first invalid field for better UX
+        if (!nameValid) nameField.focus();
+        else if (!emailValid) emailField.focus();
+        else if (!phoneValid) phoneField.focus();
+        else if (!serviceValid) serviceField.focus();
+        else if (!messageValid) messageField.focus();
+    }
+});
+
+// Real-time (on blur) validation for inputs, selects and textareas
+document.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('blur', function() {
+        const fieldName = this.name; // e.g., 'name', 'email', 'phone', 'service', 'message'
+        const errorElement = document.getElementById(`enquiry-${fieldName}-error`);
+        if (!errorElement) return;
+
+        let isValid = true;
+        switch (fieldName) {
+            case 'name': isValid = validations.name(this.value); break;
+            case 'email': isValid = validations.email(this.value); break;
+            case 'phone': isValid = validations.phone(this.value); break;
+            case 'service': isValid = validations.service(this.value); break;
+            case 'message': isValid = validations.message(this.value); break;
+            default: isValid = true;
         }
 
-        const validations = {
-            name: value => value.length >= 2,
-            email: value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-            phone: value => /^[0-9+\-\s()]{10,}$/.test(value.replace(/\s/g, '')),
-            service: value => value !== '',
-            message: value => value.length >= 10
-        };
+        if (!isValid && this.value.trim() !== '') {
+            this.style.borderColor = '#e74c3c';
+            errorElement.style.display = 'block';
+        } else {
+            this.style.borderColor = '#ddd';
+            errorElement.style.display = 'none';
+        }
+    });
+});
+</script>
 
-        // Form submission
-        document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nameValid = validateField(enquiry-name, enquiry-name-error, validations.name);
-            const emailValid = validateField(enquiry-email, enquiry-email-error, validations.email);
-            const phoneValid = validateField(enquiry-phone, enquiry-phone-error, validations.phone);
-            const serviceValid = validateField(enquiry-service, enquiry-service-error, validations.service);
-            const messageValid = validateField(enquiry-message, enquiry-message-error, validations.message);
-
-            if (nameValid && emailValid && phoneValid && serviceValid && messageValid) {
-                document.getElementById('enquiry-success').style.display = 'block';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setTimeout(() => { this.reset(); }, 3000);
-            }
-        });
-
-        // Real-time validation
-        document.querySelectorAll('input, select, textarea').forEach(field => {
-            field.addEventListener('blur', function() {
-                const fieldName = this.name;
-                const errorElement = document.getElementById(`enquiry-${fieldName}-error`);
-                if (errorElement) {
-                    let isValid = false;
-                    switch(fieldName) {
-                        case 'name': isValid = validations.name(this.value); break;
-                        case 'email': isValid = validations.email(this.value); break;
-                        case 'phone': isValid = validations.phone(this.value); break;
-                        case 'service': isValid = validations.service(this.value); break;
-                        case 'message': isValid = validations.message(this.value); break;
-                    }
-                    if (!isValid && this.value !== '') {
-                        this.style.borderColor = '#e74c3c';
-                        errorElement.style.display = 'block';
-                    } else {
-                        this.style.borderColor = '#ddd';
-                        errorElement.style.display = 'none';
-                    }
-                }
-            });
-        });
-    </script>
 </body>
 </html>
