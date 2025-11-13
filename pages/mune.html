@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu-steak house</title>
+    <title>Steak House Menu</title>
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
-<body>
+<body class="menu-page">
     <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <img src="../assests/WhatsApp Image 2025-08-16 at 18.55.17_38000621.jpg" alt="steak house logo" />
+                <img src="../assests/Logo.jpg" alt="steak house logo" />
                 <h1>STEAK HOUSE</h1>
             </div>
             <!-- Navigation -->
@@ -29,17 +32,20 @@
 
     <!-- Content -->
     <main>
-        <h1 > MENU</h1>
+<input type="text" id="menuSearch" placeholder="Search menu…" style="width:100%; padding:10px; font-size:16px; margin:10px 0;" />
+
+
+   <h1 > MENU</h1>
          <h2>Signature Meals</h2>
 
      <!-- Product Grid -->
      <div class="menu-images">
          <div class="menu-item">
-             <img src="../assests/arturo-rey-4DFFRT9v8EY-unsplash.jpg" alt="Ribs">
+             <img src="../assests/ribs  2.jpg" alt="Ribs">
              <h3>Ribs</h3>
          </div>
          <div class="menu-item">
-             <img src="../assests/Wings.jpg" alt="Wings">
+             <img src="../assests/Crispy Wings.jpg" alt="Wings">
              <h3>Wings</h3>
          </div>
          <div class="menu-item">
@@ -47,45 +53,81 @@
              <h3>Chips</h3>
          </div>
      </div>
-    
-  
-        <h2>Ribs</h2>
-        <ul class="menu-list">
-            <li>Quarter Ribs Rack (300g) - R99</li>
-            <li>Half Ribs Rack (500g) - R150</li>
-            <li>Full Ribs Rack (1kg) - R250</li>
-        </ul>
+  <h1>Steak House Menu</h1>
 
-        <h2>Wings</h2>
-        <ul class="menu-list">
-            <li>6 Wings - R50</li>
-            <li>12 Wings - R150</li>
-            <li>18 Wings - R199</li>
-        </ul>
+  <!-- Ribs -->
+  <button class="accordion">
+    <img src="../assests/ribs.jpg" alt="Ribs" onclick="openLightbox(this)">
+    Ribs
+  </button>
+  <div class="panel">
+    <ul class="menu-list">
+      <li>Quarter Ribs Rack (300g) - R99</li>
+      <li>Half Ribs Rack (500g) - R150</li>
+      <li>Full Ribs Rack (1kg) - R250</li>
+    </ul>
+  </div>
 
-        <h2>Chips</h2>
-        <ul class="menu-list">
-            <li>Small Chips - R25</li>
-            <li>Medium Chips - R39</li>
-            <li>Large Chips - R55</li>
-        </ul>
+  <!-- Wings -->
+  <button class="accordion">
+    <img src="../assests/_Wings_Crispy.jpg" alt="Wings" onclick="openLightbox(this)">
+    Wings
+  </button>
+  <div class="panel">
+    <ul class="menu-list">
+      <li>6 Wings - R50</li>
+      <li>12 Wings - R150</li>
+      <li>18 Wings - R199</li>
+    </ul>
+  </div>
 
-        <h2>Drinks</h2>
-        <ul class="menu-list">
-            <li>Soft Drink (330ml) - R18</li>
-            <li>Water (500ml) - R15</li>
-            <li>Juice (350ml) - R22</li>
-        </ul>
+  <!-- Chips -->
+  <button class="accordion">
+    <img src="../assests/Air-Fryer-Cheesy-Chips-9.jpg" alt="Chips" onclick="openLightbox(this)">
+    Chips
+  </button>
+  <div class="panel">
+    <ul class="menu-list">
+      <li>Small Chips - R25</li>
+      <li>Medium Chips - R39</li>
+      <li>Large Chips - R55</li>
+    </ul>
+  </div>
 
-        <h2>Combos</h2>
-        <ul class="menu-list">
-            <li>Rib Snack Combo - R129<br>Quarter rack + small chips + 330ml drink</li>
-            <li>Wing Lover Combo - R149<br>12 wings + medium chips + 330ml drink</li>
-            <li>Family Feast - R349<br>Half rack + 12 wings + large chips + 4 drinks</li>
-        </ul>
-    </main>
-      <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Drinks -->
+  <button class="accordion">
+    <img src="../assests/colorful drinks.webp" alt="Drinks" onclick="openLightbox(this)">
+    Drinks
+  </button>
+  <div class="panel">
+    <ul class="menu-list">
+      <li>Soft Drink (330ml) - R18</li>
+      <li>Water (500ml) - R15</li>
+      <li>Juice (350ml) - R22</li>
+    </ul>
+  </div>
+
+  <!-- Combos -->
+  <button class="accordion">
+    <img src="../assests/combo 2.jpg" alt="Combos" onclick="openLightbox(this)">
+    Combos
+  </button>
+  <div class="panel">
+    <ul class="menu-list">
+      <li><strong>Rib Snack Combo</strong> - R129<br>Quarter rack + small chips + 330ml drink</li>
+      <li><strong>Wing Lover Combo</strong> - R149<br>12 wings + medium chips + 330ml drink</li>
+      <li><strong>Family Feast</strong> - R349<br>Half rack + 12 wings + large chips + 4 drinks</li>
+    </ul>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+
 
   <footer>
     <!-- Social Icons -->
@@ -100,9 +142,9 @@
     <!-- Navigation Links -->
     <div class="footer-nav">
       <a href="../index.html">Home</a>
-      <a href="mune.html">Menu</a>
+      <a href="./mune.html">Menu</a>
       <a href="./about.html">About</a>
-      <a href="./contact.html">Contact Us</a>
+      <a href="contact.html">Contact Us</a>
     </div>
 
     <!-- Copyright -->
@@ -110,5 +152,65 @@
       Copyright ©2025; Steak House
     </div>
   </footer>
+    <script>
+    // Accordion toggle
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.classList.toggle("show");
+      });
+    }
+
+    // Lightbox functionality
+    function openLightbox(img) {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const captionText = document.getElementById("lightbox-caption");
+
+      lightboxImg.src = img.src;
+      captionText.innerHTML = img.alt;
+      lightbox.classList.add("show");
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById("lightbox");
+      lightbox.classList.remove("show");
+    }
+  
+  document.getElementById('menuSearch').addEventListener('input', function() {
+    const filter = this.value.toLowerCase();
+    const accordions = document.getElementsByClassName('accordion');
+    for (let i = 0; i < accordions.length; i++) {
+      const btn = accordions[i];
+      const panel = btn.nextElementSibling;
+      // get the list items inside the panel
+      const items = panel.getElementsByTagName('li');
+      let found = false;
+      // check each item text
+      for (let j = 0; j < items.length; j++) {
+        const txt = items[j].textContent.toLowerCase();
+        if (txt.indexOf(filter) > -1) {
+          found = true;
+          items[j].style.display = '';
+        } else {
+          items[j].style.display = 'none';
+        }
+      }
+      // if any item found in that section, show that section (and expand it)
+      if (found) {
+        btn.style.display = '';       // show the header
+        panel.style.display = 'block'; // expand the panel
+      } else {
+        btn.style.display = 'none';
+        panel.style.display = 'none';
+      }
+    }
+  });
+
+  </script>
+  
 </body>
 </html>
+
