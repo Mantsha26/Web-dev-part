@@ -84,19 +84,19 @@
       <h2>From the Grill</h2>
       <div class="gallery-grid">
         <figure>
-          <img src="assests/ribs close up.jpg" alt="Ribs close-up with glaze" />
+          <img src="assests/ribs close up.jpg" alt="Ribs close-up with glaze" onclick="openLightbox(this)" />
           <figcaption>Signature glaze &amp; char.</figcaption>
         </figure>
         <figure>
-          <img src="assests/wings sauces.jpg" alt="Wings platter with sauces" />
+          <img src="assests/wings sauces.jpg" alt="Wings platter with sauces"  onclick="openLightbox(this)"/>
           <figcaption>Wings your way.</figcaption>
         </figure>
         <figure>
-          <img src="assests/basket of chips.jpg" alt="Basket of chips" />
+          <img src="assests/basket of chips.jpg" alt="Basket of chips" onclick="openLightbox(this)" />
           <figcaption>Hand-cut crunch.</figcaption>
         </figure>
         <figure>
-          <img src="assests/combo.jpeg" alt="Combo meal for sharing" />
+          <img src="assests/combo.jpeg" alt="Combo meal for sharing" onclick="openLightbox(this)" />
           <figcaption>Perfect for sharing.</figcaption>
         </figure>
       </div>
@@ -150,5 +150,28 @@
       Copyright ©2025; Steak House
     </div>
   </footer>
+    <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+  <script>
+  // Lightbox functionality
+  function openLightbox(img) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const captionText = document.getElementById("lightbox-caption");
+
+    lightboxImg.src = img.src;
+    captionText.innerHTML = img.alt;
+    lightbox.classList.add("show");
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    lightbox.classList.remove("show");
+  }
+  </script>
 </body>
 </html>
