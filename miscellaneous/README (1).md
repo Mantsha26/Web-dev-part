@@ -141,3 +141,89 @@ Font Awesome. Free Icons. Available at: https://fontawesome.com/icons
 
 Google Developers. Google Maps Embed API. Available at: https://developers.google.com/maps/documentation/embed
  (Accessed: 2 September 2025).
+
+
+
+
+ ## The Feedback(Part 2)
+
+Overall Feedback
+Flawless code, perfect structure, and zero bugs. Legendary work!!!
+Try to improve on the skills (based on the rubric) where maximum marks were not obtained.
+
+**I Improve this :**
+
+1. GitHub: Project Pushed with Multiple Descriptive Commits
+ Making more frequent, descriptive GitHub commits
+
+2. Responsive Design: Media Queries/Breakpoints for Tablet and Mobile
+ I Need to Improve
+Add more structured media queries.
+Ensure the layout adjusts cleanly on all screen sizes.
+Improve spacing, font sizes, and stacking on mobile/tablet.
+
+I  Improve
+Use standard breakpoints:
+
+ Mobile (0–480px) 
+@media (max-width: 480px) { }
+
+Tablet (481–768px) 
+@media (max-width: 768px) { }
+
+
+## 🔄 CHANGE LOG (Part 3)
+
+ 1. Gallery & Visual Enhancements
+
+* Added and integrated the **Gallery Lightbox** on the **Index** and **Menu** pages.
+* Renamed **all images** for better SEO, accessibility, and organisation.
+
+ 2. UI Components
+
+* Added **Accordion** functionality:
+
+ * Used on the **Menu** page for menu categories.
+ * Used on the **Enquiry** 
+
+ 3. Automation & Functionality**
+
+* Implemented **Auto Date and Time** feature on the **Enquiry** page.
+* Added a **Search Filter** on the **Menu** page to filter items dynamically.
+
+4. SEO & Social Media
+
+* Added **On-page SEO** for all pages (meta tags, titles, descriptions, keywords).
+* Set up and tested **social media links** (all platforms working correctly).
+
+5. JavaScript Enhancements
+
+* Added JavaScript validation and behaviour for:
+
+  * Contact Form**
+  * Enquiry Form**
+  * Index Page**
+  * Menu Page**
+
+6. Styling Updates
+
+* Updated and improved **CSS** for better layout, spacing, colours, and responsiveness.
+
+7. New Pages
+
+* Added an **Enquiry Page**, including:
+
+  * Form structure
+  * Validation
+  * Auto timestamp
+  * Accordion section
+
+## 📚 Reference List
+
+Lightbox2. Lightbox Gallery Script Documentation. Available: https://lokeshdhakar.com/projects/lightbox2/
+
+Mozilla Developer Network (MDN). JavaScript Reference. Available: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+Font Awesome. Icons Reference. Available: https://fontawesome.com/icons
+
+Google Developers. SEO Starter Guide. Available: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
