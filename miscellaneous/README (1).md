@@ -162,7 +162,7 @@ Add more structured media queries.
 Ensure the layout adjusts cleanly on all screen sizes.
 Improve spacing, font sizes, and stacking on mobile/tablet.
 
-I  Improve
+## I  Improve
 Use standard breakpoints:
 
  Mobile (0–480px) 
